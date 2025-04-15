@@ -44,7 +44,7 @@ class MiniDatabase:
                 self._save()
                 return
 
-    def name(self, name):
+    def search(self, name):
         for record in self.data:
             if name.lower() == record.get("name").lower():
                 return record
@@ -84,7 +84,7 @@ def run_interface():
             db.delete_record(id_)
         elif command == "search":  #
             name = input("Enter name to search: ")
-            results = db.search_by_name(name)
+            results = db.search(name)
             for r in results:
                 print(r)
         elif command == "stop":  #
